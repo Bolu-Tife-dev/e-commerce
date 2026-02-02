@@ -1,0 +1,45 @@
+.hero {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  max-width: 980px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.25rem;
+  color: #1a202c;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #4a5568;
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+}
+
+.ctaWrap {
+  display: inline-flex;
+  gap: 0.75rem;
+}
+
+.ctaPrimary {
+  background: linear-gradient(90deg,#3182ce,#2c5282);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ctaGhost {
+  padding: 0.7rem 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #2d3748;
+  background: rgba(45,55,72,0.06);
+}

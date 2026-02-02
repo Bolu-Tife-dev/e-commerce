@@ -1,0 +1,137 @@
+.container {
+  max-width: 100%;
+  background: white;
+}
+
+.hero {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.heroContent {
+  max-width: 980px;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 2.25rem;
+  color: #1a202c;
+  margin-bottom: 0.5rem;
+}
+
+.heroSubtitle {
+  color: #4a5568;
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+}
+
+.ctaWrap {
+  display: inline-flex;
+  gap: 0.75rem;
+}
+
+.ctaPrimary {
+  background: linear-gradient(90deg,#3182ce,#2c5282);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ctaGhost {
+  padding: 0.7rem 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #2d3748;
+  background: rgba(45,55,72,0.06);
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  color: #1a202c;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.testimonialsSection {
+  background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 4rem 2rem;
+  margin: 3rem 0;
+}
+
+.testimonialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonialCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.quote {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.testimonialName {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.contactSection {
+  background: white;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.contactText {
+  color: #4a5568;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(90deg, #3182ce, #2c5282);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .hero { padding: 3rem 1rem; }
+  .heroTitle { font-size: 1.9rem; }
+  .sectionTitle { font-size: 1.6rem; }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 2.25rem 0.75rem; }
+  .heroContent { padding: 0 1rem; }
+  .heroTitle { font-size: 1.6rem; }
+  .heroSubtitle { font-size: 0.98rem; }
+  .grid { gap: 1rem; }
+  .testimonialsSection { padding: 2rem 1rem; }
+  .contactSection { padding: 2rem 1rem; }
+}

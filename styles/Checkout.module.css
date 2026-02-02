@@ -1,0 +1,103 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.orderSummary {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.orderSummary h2 {
+  font-size: 1.5rem;
+  color: #1a202c;
+  margin-bottom: 1.5rem;
+}
+
+.items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1rem;
+}
+
+.itemRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  color: #4a5568;
+}
+
+.itemTitle {
+  font-weight: 500;
+}
+
+.itemPrice {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  font-size: 0.95rem;
+  color: #718096;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  margin-top: 1rem;
+  border-top: 2px solid #e2e8f0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.totalRow strong {
+  font-size: 1.25rem;
+  color: #3182ce;
+}
+
+.button {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #3182ce, #2c5282);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(49, 130, 206, 0.2);
+  margin-top: 1rem;
+}
+
+.button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #2c5282, #1a365d);
+  box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 1rem; }
+  .orderSummary { padding: 1rem; }
+  .itemRow { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .summaryRow, .totalRow { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .button { padding: 0.8rem 1rem; font-size: 0.95rem; }
+}
