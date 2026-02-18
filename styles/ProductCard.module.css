@@ -1,33 +1,33 @@
 .card {
   border: 1px solid #e2e8f0;
-  padding: 1.5rem;
-  border-radius: 12px;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
   text-align: center;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
 .card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
   transform: translateY(-4px);
 }
 
 .image {
   width: 100%;
-  height: 220px;
+  aspect-ratio: 1/1;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-md);
 }
 
 .price {
   font-weight: 600;
-  color: #3182ce;
+  color: var(--color-link);
   font-size: 1.2rem;
-  margin: 0.5rem 0;
+  margin: var(--spacing-sm) 0;
 }
 
 .discount {
@@ -35,34 +35,34 @@
   font-size: 0.9rem;
   font-weight: 500;
   background: #f0fff4;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
   display: inline-block;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-sm);
 }
 
 .rating {
   color: #d69e2e; /* Warm gold */
   font-size: 0.9rem;
   font-weight: 500;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-md);
 }
 
 .link {
   display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #3182ce, #2c5282);
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: linear-gradient(135deg, var(--color-btn-start), var(--color-btn-end));
   color: white;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-default);
+  box-shadow: var(--shadow-sm);
 }
 
 .link:hover {
-  background: linear-gradient(135deg, #2c5282, #1a365d);
+  background: linear-gradient(135deg, var(--color-btn-hover-start), var(--color-btn-hover-end));
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transform: translateY(-1px);
 }

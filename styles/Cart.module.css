@@ -1,23 +1,23 @@
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 3rem 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-top: 2rem;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--spacing-xl);
 }
 
 .item {
   display: flex;
   align-items: center;
   border: 1px solid #e2e8f0;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 12px;
-  background: #f8fafc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.2s ease;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-default);
 }
 
 .item:hover {
@@ -28,30 +28,31 @@
   width: 120px;
   height: 120px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-right: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-sm);
+  margin-right: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .quantity {
   width: 70px;
-  margin: 0 1rem;
-  padding: 0.5rem;
+  max-width: 100%;
+  margin: 0 var(--spacing-md);
+  padding: var(--spacing-sm);
   border: 1px solid #cbd5e0;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   font-size: 1rem;
 }
 
 .remove {
-  background: linear-gradient(135deg, #e53e3e, #c53030);
+  background: linear-gradient(135deg, var(--color-error), #c53030);
   color: white;
-  padding: 0.5rem 1rem;
+  padding: var(--spacing-sm) var(--spacing-md);
   font-size: 0.9rem;
   font-weight: 500;
-  margin-left: 1rem;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: var(--spacing-lg);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-default);
+  box-shadow: var(--shadow-sm);
 }
 
 .remove:hover {
@@ -64,21 +65,21 @@
   font-size: 1.4rem;
   font-weight: 700;
   text-align: right;
-  margin: 2rem 0;
-  color: #2d3748;
+  margin: var(--spacing-xl) 0;
+  color: var(--color-text);
 }
 
 .checkoutButton {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: var(--spacing-md) var(--spacing-xl);
   background: linear-gradient(135deg, #38a169, #2f855a);
   color: white;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-default);
+  box-shadow: var(--shadow-sm);
 }
 
 .checkoutButton:hover {
@@ -89,8 +90,8 @@
 
 @media (max-width: 768px) {
   .item { flex-direction: column; align-items: flex-start; }
-  .image { width: 100%; height: auto; margin-right: 0; margin-bottom: 1rem; }
-  .quantity { width: 100%; margin: 0 0 1rem 0; }
-  .remove { margin-left: 0; margin-top: 0.5rem; }
+  .image { width: 100%; height: auto; margin-right: 0; margin-bottom: var(--spacing-lg); }
+  .quantity { width: 100%; margin: 0 0 var(--spacing-lg) 0; }
+  .remove { margin-left: 0; margin-top: var(--spacing-sm); }
   .total { text-align: left; }
 }
