@@ -75,13 +75,36 @@ export default function Navbar() {
       </div>
 
       <ul className={`${styles.navLinks} ${menuOpen ? styles.mobileOpen : ''}`} role="list">
-        {(['/', '/store', '/contact']).map((href, i) => (
+        {([['/', 'Home'], ['/store', 'Store'], ['/contact', 'Contact']]).map(([href, label]) => (
           <li key={href} className={styles.navItem}>
             <Link href={href} className={styles.navLink} onClick={() => setMenuOpen(false)}>
-              {['Home', 'Store', 'Contact'][i]}
+              {label}
             </Link>
           </li>
         ))}
+        {mounted && auth.user ? (
+          <li className={styles.navItem}>
+            <button
+              className={styles.navLink}
+              onClick={() => { auth.logout(); setMenuOpen(false); }}
+            >
+              Logout
+            </button>
+          </li>
+        ) : mounted && (
+          <>
+            <li className={styles.navItem}>
+              <Link href="/login" className={styles.navLink} onClick={() => setMenuOpen(false)}>
+                Login
+              </Link>
+            </li>
+            <li className={styles.navItem}>
+              <Link href="/signup" className={styles.navLink} onClick={() => setMenuOpen(false)}>
+                Sign Up
+              </Link>
+            </li>
+          </>
+        )}
       </ul>
 
       <div className={styles.actions}>
