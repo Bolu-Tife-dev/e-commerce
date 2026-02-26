@@ -1,131 +1,406 @@
+/* ============================================================
+   Luxe Navbar — CSS Module (scoped classes only)
+   Theme tokens live in globals.css / navbar-theme-tokens.css
+   ============================================================ */
+
+/* ---------- Base ---------- */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 2rem;
-  background: white;
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 100;
-  gap: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  height: 64px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: var(--nav-shadow);
+  transition: background var(--nav-transition), box-shadow var(--nav-transition);
+}
+
+.scrolled {
+  background: var(--nav-bg-scrolled);
+  box-shadow: var(--nav-shadow-scrolled);
+}
+
+/* ---------- Brand ---------- */
+.brandWrap {
+  flex-shrink: 0;
+  margin-right: auto;
 }
 
 .logo {
-  font-size: 1.8rem;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #3182ce;
+  letter-spacing: -0.03em;
+  color: var(--nav-logo);
   text-decoration: none;
-  letter-spacing: -0.02em;
+  transition: opacity var(--nav-transition);
 }
 
-.section {
+.logo:hover {
+  opacity: 0.75;
+}
+
+.logoDot {
+  color: var(--nav-dot);
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+/* ---------- Nav links ---------- */
+.navLinks {
   display: flex;
-  gap: 12px;
   align-items: center;
-  flex: 1;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
+.navItem {
+  display: flex;
+}
+
+.navLink {
+  position: relative;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--nav-text-muted);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color var(--nav-transition), background var(--nav-transition);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: var(--nav-dot);
+  border-radius: 2px;
+  transition: transform var(--nav-transition);
+}
+
+.navLink:hover {
+  color: var(--nav-link-hover);
+  background: var(--nav-toggle-bg);
+}
+
+.navLink:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ---------- Actions ---------- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+/* ---------- Theme toggle ---------- */
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: var(--nav-toggle-bg);
+  color: var(--nav-toggle-fg);
+  cursor: pointer;
+  transition: background var(--nav-transition), color var(--nav-transition), transform var(--nav-transition);
+  flex-shrink: 0;
+}
+
+.themeToggle:hover {
+  background: var(--nav-toggle-hover);
+  transform: rotate(12deg) scale(1.05);
+}
+
+.themeIconWrap {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themeIcon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.6) rotate(-30deg);
+  transition: opacity var(--nav-transition), transform var(--nav-transition);
+  pointer-events: none;
+}
+
+.themeIconVisible {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* ---------- Auth ---------- */
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.userName {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--nav-text-muted);
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logoutBtn {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--nav-text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  transition: color var(--nav-transition), background var(--nav-transition);
+}
+
+.logoutBtn:hover {
+  color: var(--nav-link-hover);
+  background: var(--nav-toggle-bg);
+}
+
+.authLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.loginLink {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--nav-text-muted);
+  text-decoration: none;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  transition: color var(--nav-transition), background var(--nav-transition);
+}
+
+.loginLink:hover {
+  color: var(--nav-link-hover);
+  background: var(--nav-toggle-bg);
+}
+
+.signupBtn {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--nav-signup-fg);
+  background: var(--nav-signup-bg);
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 7px;
+  transition: background var(--nav-transition), transform var(--nav-transition);
+  letter-spacing: 0.01em;
+}
+
+.signupBtn:hover {
+  background: var(--nav-signup-hover);
+  transform: translateY(-1px);
+}
+
+/* ---------- Cart ---------- */
+.cartBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: var(--nav-text);
+  text-decoration: none;
+  transition: background var(--nav-transition), color var(--nav-transition);
+}
+
+.cartBtn:hover {
+  background: var(--nav-toggle-bg);
+  color: var(--nav-link-hover);
+}
+
+.cartBadge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--nav-badge-bg);
+  color: var(--nav-badge-fg);
+  font-size: 0.625rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  animation: badgePop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes badgePop {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}
+
+/* ---------- Hamburger ---------- */
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: center;
-  gap: 4px;
+  align-items: center;
   width: 36px;
   height: 36px;
-  padding: 6px;
-  border-radius: 8px;
-  background: transparent;
+  gap: 5px;
   border: none;
+  background: transparent;
   cursor: pointer;
+  border-radius: 8px;
+  padding: 0;
+  transition: background var(--nav-transition);
+}
+
+.hamburger:hover {
+  background: var(--nav-toggle-bg);
 }
 
 .bar {
   display: block;
+  width: 20px;
   height: 2px;
-  background: #2d3748;
+  background: var(--nav-text);
   border-radius: 2px;
+  transition: transform var(--nav-transition), opacity var(--nav-transition), width var(--nav-transition);
+  transform-origin: center;
 }
 
-.cart {
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #3182ce, #2c5282);
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.hamburgerOpen .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburgerOpen .bar:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.hamburgerOpen .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-.cart:hover {
-  background: linear-gradient(135deg, #2c5282, #1a365d);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transform: translateY(-1px);
+/* ---------- Mobile overlay ---------- */
+.mobileOverlay {
+  display: none;
 }
 
-.navLinks {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-  flex: 1;
-  justify-content: center;
-}
-
-.navItem a {
-  color: #2d3748;
-  text-decoration: none;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  transition: background 0.15s ease;
-}
-
-.navItem a:hover {
-  background: rgba(49,130,206,0.06);
-}
-
-.navLink {
-  color: #2d3748;
-  text-decoration: none;
-  padding: 0.4rem 0.65rem;
-  border-radius: 6px;
-  background: transparent;
-}
-
-.navLink:hover {
-  background: rgba(49,130,206,0.06);
-}
-
+/* ---------- Responsive ---------- */
 @media (max-width: 768px) {
-  .navLinks {
-    display: none;
+  .navbar {
+    padding: 0 1.25rem;
   }
-  .navLinks.mobileOpen {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
-    padding: 1rem 1.25rem;
-    gap: 0.75rem;
-    border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
-    z-index: 90;
-  }
+
   .hamburger {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 8px;
   }
-  
-  .navbar {
-    padding: 1.5rem 1rem;
+
+  .navLinks {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.5rem 1.25rem 1.25rem;
+    background: var(--nav-mobile-bg);
+    border-bottom: 1px solid var(--nav-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+    animation: slideDown 0.2s ease;
   }
+
+  .mobileOpen {
+    display: flex;
+  }
+
+  .navItem {
+    width: 100%;
+  }
+
+  .navLink {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+    font-size: 1rem;
+    border-radius: 0;
+    border-bottom: 1px solid var(--nav-border);
+  }
+
+  .navLink::after {
+    display: none;
+  }
+
+  .navItem:last-child .navLink {
+    border-bottom: none;
+  }
+
+  .userName {
+    display: none;
+  }
+
+  .mobileOverlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    top: 64px;
+    background: var(--nav-overlay);
+    z-index: 98;
+    animation: fadeIn 0.2s ease;
+  }
+}
+
+@media (max-width: 480px) {
+  .authLinks {
+    display: none;
+  }
+
+  .userArea {
+    display: none;
+  }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }

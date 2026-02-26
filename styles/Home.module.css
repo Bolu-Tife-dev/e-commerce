@@ -1,137 +1,268 @@
+/* ============================================================
+   Home.module.css — fully theme-aware
+   ============================================================ */
+
 .container {
-  max-width: 100%;
-  background: white;
+  width: 100%;
 }
 
+/* ---------- Hero ---------- */
 .hero {
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-  padding: 4rem 1rem;
+  min-height: 82vh;
   display: flex;
+  align-items: center;
   justify-content: center;
+  padding: 5rem 2rem;
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+  transition: background 220ms ease;
+}
+
+/* decorative radial accent */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  right: -150px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-link) 12%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--nav-dot) 8%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 .heroContent {
-  max-width: 980px;
+  max-width: 640px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .heroTitle {
-  font-size: 2.25rem;
-  color: #1a202c;
-  margin-bottom: 0.5rem;
-}
-
-.heroSubtitle {
-  color: #4a5568;
-  font-size: 1.05rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  color: var(--color-heading);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   margin-bottom: 1.25rem;
 }
 
+.heroSubtitle {
+  font-size: 1.175rem;
+  color: var(--color-body-muted);
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .ctaWrap {
-  display: inline-flex;
-  gap: 0.75rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .ctaPrimary {
-  background: linear-gradient(90deg,#3182ce,#2c5282);
-  color: #fff;
-  padding: 0.75rem 1.25rem;
-  border-radius: 8px;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
   font-weight: 600;
+  background: var(--color-btn-bg);
+  color: var(--color-btn-fg);
+  border-radius: 9px;
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+  transition: all 220ms ease;
+}
+
+.ctaPrimary:hover {
+  background: var(--color-btn-bg-hover);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  color: var(--color-btn-fg);
 }
 
 .ctaGhost {
-  padding: 0.7rem 1.1rem;
-  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: transparent;
+  color: var(--color-body);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: 9px;
   text-decoration: none;
-  color: #2d3748;
-  background: rgba(45,55,72,0.06);
+  transition: all 220ms ease;
 }
 
+.ctaGhost:hover {
+  background: var(--color-surface);
+  border-color: var(--color-body-muted);
+  color: var(--color-heading);
+  transform: translateY(-2px);
+}
+
+/* ---------- Shared section styles ---------- */
 .sectionTitle {
-  font-size: 2rem;
-  color: #1a202c;
-  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  letter-spacing: -0.02em;
   margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ---------- Products Section ---------- */
+.productsSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.5rem;
 }
 
+/* ---------- Testimonials ---------- */
 .testimonialsSection {
-  background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
-  padding: 4rem 2rem;
-  margin: 3rem 0;
+  background: var(--color-bg-alt);
+  padding: 5rem 1.5rem;
+  transition: background 220ms ease;
 }
 
 .testimonialGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: 960px;
   margin: 0 auto;
 }
 
 .testimonialCard {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: background 220ms ease, border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border-strong);
 }
 
 .quote {
-  color: #4a5568;
   font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  color: var(--color-body);
   font-style: italic;
+  line-height: 1.65;
+  margin-bottom: 1rem;
 }
 
 .testimonialName {
-  color: #2d3748;
+  font-size: 0.875rem;
   font-weight: 600;
+  color: var(--color-body-muted);
+  margin: 0;
 }
 
+/* ---------- Contact CTA Section ---------- */
 .contactSection {
-  background: white;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 5rem 1.5rem;
   text-align: center;
+  background: var(--color-bg);
+  transition: background 220ms ease;
 }
 
 .contactText {
-  color: #4a5568;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  color: var(--color-body-muted);
+  margin-bottom: 2rem;
+  margin-top: -1rem;
 }
 
 .ctaButton {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(90deg, #3182ce, #2c5282);
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 2.25rem;
+  font-size: 1rem;
   font-weight: 600;
+  background: var(--color-btn-bg);
+  color: var(--color-btn-fg);
+  border-radius: 9px;
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+  transition: all 220ms ease;
 }
 
-@media (max-width: 1024px) {
-  .hero { padding: 3rem 1rem; }
-  .heroTitle { font-size: 1.9rem; }
-  .sectionTitle { font-size: 1.6rem; }
+.ctaButton:hover {
+  background: var(--color-btn-bg-hover);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  color: var(--color-btn-fg);
 }
 
-@media (max-width: 768px) {
-  .hero { padding: 2.25rem 0.75rem; }
-  .heroContent { padding: 0 1rem; }
-  .heroTitle { font-size: 1.6rem; }
-  .heroSubtitle { font-size: 0.98rem; }
-  .grid { gap: 1rem; }
-  .testimonialsSection { padding: 2rem 1rem; }
-  .contactSection { padding: 2rem 1rem; }
+/* ---------- Loading / Error ---------- */
+.loading,
+.error {
+  text-align: center;
+  padding: 6rem 2rem;
+  font-size: 1rem;
+  color: var(--color-body-muted);
+}
+
+.error {
+  color: var(--color-error);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .ctaWrap {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ctaPrimary,
+  .ctaGhost {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
 }

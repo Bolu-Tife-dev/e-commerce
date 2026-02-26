@@ -1,96 +1,138 @@
 .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-top: 2rem;
+  max-width: 760px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
 }
 
+.container h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+/* CartItem */
 .item {
   display: flex;
-  align-items: center;
-  border: 1px solid #e2e8f0;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 12px;
-  background: #f8fafc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.2s ease;
-}
-
-.item:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: background 220ms ease, border-color 220ms ease;
 }
 
 .image {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
   border-radius: 8px;
-  margin-right: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  background: var(--color-bg-alt);
+}
+
+.item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 0.3rem;
+}
+
+.item p {
+  font-size: 0.875rem;
+  color: var(--color-body-muted);
+  margin-bottom: 0.75rem;
 }
 
 .quantity {
   width: 70px;
-  margin: 0 1rem;
-  padding: 0.5rem;
-  border: 1px solid #cbd5e0;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.875rem;
+  background: var(--color-input-bg);
+  color: var(--color-body);
+  border: 1px solid var(--color-input-border);
   border-radius: 6px;
-  font-size: 1rem;
+  margin-right: 0.75rem;
+  transition: border-color 200ms ease, background 220ms ease;
+}
+
+.quantity:focus {
+  outline: none;
+  border-color: var(--color-input-border-focus);
 }
 
 .remove {
-  background: linear-gradient(135deg, #e53e3e, #c53030);
-  color: white;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
+  padding: 0.4rem 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  margin-left: 1rem;
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  border: 1px solid transparent;
   border-radius: 6px;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 200ms ease;
 }
 
 .remove:hover {
-  background: linear-gradient(135deg, #c53030, #9b2c2c);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transform: translateY(-1px);
+  background: var(--color-error);
+  color: #fff;
+  transform: none;
+  box-shadow: none;
 }
 
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Cart page footer */
 .total {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 700;
+  color: var(--color-heading);
   text-align: right;
-  margin: 2rem 0;
-  color: #2d3748;
+  margin: 1.5rem 0 1rem;
 }
 
 .checkoutButton {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background: linear-gradient(135deg, #38a169, #2f855a);
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 1.1rem;
+  display: block;
+  width: 100%;
+  padding: 0.875rem;
+  text-align: center;
+  font-size: 1rem;
   font-weight: 600;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: var(--color-btn-bg);
+  color: var(--color-btn-fg);
+  border-radius: 9px;
+  text-decoration: none;
+  transition: all 200ms ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .checkoutButton:hover {
-  background: linear-gradient(135deg, #2f855a, #22543d);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: var(--color-btn-bg-hover);
+  box-shadow: var(--shadow-md);
   transform: translateY(-1px);
+  color: var(--color-btn-fg);
 }
 
-@media (max-width: 768px) {
-  .item { flex-direction: column; align-items: flex-start; }
-  .image { width: 100%; height: auto; margin-right: 0; margin-bottom: 1rem; }
-  .quantity { width: 100%; margin: 0 0 1rem 0; }
-  .remove { margin-left: 0; margin-top: 0.5rem; }
-  .total { text-align: left; }
+@media (max-width: 600px) {
+  .item {
+    flex-direction: column;
+  }
+  .image {
+    width: 100%;
+    height: 180px;
+  }
 }

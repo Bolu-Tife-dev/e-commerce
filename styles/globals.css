@@ -4,53 +4,213 @@
   padding: 0;
 }
 
+/* ============================================================
+   THEME TOKENS
+   Applied via data-theme="light" | "dark" on <html>
+   Set by ThemeProvider + anti-flash inline script in layout.js
+   ============================================================ */
+:root,
+[data-theme='light'] {
+  /* --- Page --- */
+  --color-bg: #f7fafc;
+  --color-bg-alt: #edf2f7;       /* slightly darker surface, e.g. sidebar */
+  --color-surface: #ffffff;       /* cards, panels, modals */
+  --color-surface-hover: #f0f4f8;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e0;
+
+  /* --- Text --- */
+  --color-body: #2d3748;
+  --color-body-muted: #718096;
+  --color-heading: #1a202c;
+  --color-label: #4a5568;
+
+  /* --- Interactive --- */
+  --color-link: #3182ce;
+  --color-link-hover: #2c5282;
+  --color-focus: #63b3ed;
+
+  /* --- Buttons --- */
+  --color-btn-bg: linear-gradient(135deg, #3182ce, #2c5282);
+  --color-btn-bg-hover: linear-gradient(135deg, #2c5282, #1a365d);
+  --color-btn-fg: #ffffff;
+  --color-btn-disabled: #a0aec0;
+  --color-btn-ghost-fg: #4a5568;
+  --color-btn-ghost-hover: #edf2f7;
+
+  /* --- Forms --- */
+  --color-input-bg: #ffffff;
+  --color-input-border: #cbd5e0;
+  --color-input-border-focus: #3182ce;
+  --color-input-placeholder: #a0aec0;
+
+  /* --- Feedback --- */
+  --color-success: #38a169;
+  --color-success-bg: #f0fff4;
+  --color-error: #e53e3e;
+  --color-error-bg: #fff5f5;
+  --color-warning: #d69e2e;
+  --color-warning-bg: #fffff0;
+  --color-info: #3182ce;
+  --color-info-bg: #ebf8ff;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+  /* --- Navbar (used by Navbar.module.css) --- */
+  --nav-bg: rgba(255, 255, 255, 0.88);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.97);
+  --nav-border: rgba(0, 0, 0, 0.07);
+  --nav-shadow: 0 1px 0 var(--nav-border);
+  --nav-shadow-scrolled: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --nav-text: #1a1a2e;
+  --nav-text-muted: #6b7280;
+  --nav-link-hover: #111;
+  --nav-logo: #0f0f1a;
+  --nav-dot: #e63946;
+  --nav-toggle-bg: #f3f4f6;
+  --nav-toggle-fg: #374151;
+  --nav-toggle-hover: #e5e7eb;
+  --nav-signup-bg: #0f0f1a;
+  --nav-signup-fg: #fff;
+  --nav-signup-hover: #1e1e3a;
+  --nav-overlay: rgba(0, 0, 0, 0.3);
+  --nav-mobile-bg: #fff;
+  --nav-badge-bg: #e63946;
+  --nav-badge-fg: #fff;
+  --nav-transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme='dark'] {
+  /* --- Page --- */
+  --color-bg: #0d0d1a;
+  --color-bg-alt: #13131f;
+  --color-surface: #1a1a2e;
+  --color-surface-hover: #1f1f35;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.15);
+
+  /* --- Text --- */
+  --color-body: #c9cdd8;
+  --color-body-muted: #8892a4;
+  --color-heading: #f0f0f5;
+  --color-label: #9ca3af;
+
+  /* --- Interactive --- */
+  --color-link: #63a4ff;
+  --color-link-hover: #90bfff;
+  --color-focus: #4299e1;
+
+  /* --- Buttons --- */
+  --color-btn-bg: linear-gradient(135deg, #2563eb, #1d4ed8);
+  --color-btn-bg-hover: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+  --color-btn-fg: #ffffff;
+  --color-btn-disabled: #374151;
+  --color-btn-ghost-fg: #9ca3af;
+  --color-btn-ghost-hover: rgba(255, 255, 255, 0.06);
+
+  /* --- Forms --- */
+  --color-input-bg: #1a1a2e;
+  --color-input-border: rgba(255, 255, 255, 0.12);
+  --color-input-border-focus: #63a4ff;
+  --color-input-placeholder: #4b5563;
+
+  /* --- Feedback --- */
+  --color-success: #48bb78;
+  --color-success-bg: rgba(72, 187, 120, 0.1);
+  --color-error: #fc8181;
+  --color-error-bg: rgba(252, 129, 129, 0.1);
+  --color-warning: #f6e05e;
+  --color-warning-bg: rgba(246, 224, 94, 0.1);
+  --color-info: #63a4ff;
+  --color-info-bg: rgba(99, 164, 255, 0.1);
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+
+  /* --- Navbar --- */
+  --nav-bg: rgba(13, 13, 26, 0.88);
+  --nav-bg-scrolled: rgba(13, 13, 26, 0.97);
+  --nav-border: rgba(255, 255, 255, 0.08);
+  --nav-shadow: 0 1px 0 var(--nav-border);
+  --nav-shadow-scrolled: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --nav-text: #f0f0f5;
+  --nav-text-muted: #9ca3af;
+  --nav-link-hover: #fff;
+  --nav-logo: #f0f0f5;
+  --nav-dot: #ff6b6b;
+  --nav-toggle-bg: rgba(255, 255, 255, 0.08);
+  --nav-toggle-fg: #d1d5db;
+  --nav-toggle-hover: rgba(255, 255, 255, 0.14);
+  --nav-signup-bg: #f0f0f5;
+  --nav-signup-fg: #0f0f1a;
+  --nav-signup-hover: #fff;
+  --nav-overlay: rgba(0, 0, 0, 0.6);
+  --nav-mobile-bg: #0d0d1a;
+  --nav-badge-bg: #ff6b6b;
+  --nav-badge-fg: #fff;
+}
+
+/* ============================================================
+   BASE STYLES — use tokens so every element responds to theme
+   ============================================================ */
+html {
+  color-scheme: light dark; /* tells browser scrollbars / inputs to match */
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
-  color: #2d3748; /* Dark gray for text */
-  background: #f7fafc; /* Light gray background for subtle depth */
+  color: var(--color-body);
+  background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 220ms ease, color 220ms ease;
 }
 
 a {
-  color: #3182ce; /* Professional blue */
+  color: var(--color-link);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #2c5282; /* Darker blue on hover */
+  color: var(--color-link-hover);
 }
 
+/* Default button — overridden by component-level styles where needed */
 button {
   cursor: pointer;
   border: none;
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #3182ce, #2c5282); /* Subtle gradient for depth */
-  color: white;
+  background: var(--color-btn-bg);
+  color: var(--color-btn-fg);
   border-radius: 8px;
   font-weight: 500;
   font-size: 1rem;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 button:hover:not(:disabled) {
-  background: linear-gradient(135deg, #2c5282, #1a365d);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: var(--color-btn-bg-hover);
+  box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }
 
 button:disabled {
-  background: #a0aec0;
+  background: var(--color-btn-disabled);
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
 }
 
 h1, h2, h3, h4 {
-  color: #1a202c; /* Even darker for headings */
+  color: var(--color-heading);
   margin-bottom: 0.5rem;
 }
 
@@ -58,7 +218,27 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Responsive base adjustments */
+input, textarea, select {
+  background: var(--color-input-bg);
+  color: var(--color-body);
+  border: 1px solid var(--color-input-border);
+  border-radius: 6px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-input-border-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-focus) 25%, transparent);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--color-input-placeholder);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 @media (max-width: 1024px) {
   body { font-size: 15px; }
 }

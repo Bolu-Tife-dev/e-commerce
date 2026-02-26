@@ -1,58 +1,76 @@
 .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-top: 2rem;
-  text-align: center;
+  max-width: 720px;
+  margin: 3rem auto;
+  padding: 0 1.5rem 4rem;
 }
 
 .image {
   width: 100%;
-  max-width: 450px;
-  height: auto;
+  max-height: 420px;
+  object-fit: contain;
   border-radius: 12px;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: var(--color-bg-alt);
+  margin-bottom: 1.75rem;
+  display: block;
+  transition: background 220ms ease;
+}
+
+.container h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.container p {
+  color: var(--color-body);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
 }
 
 .price {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #3182ce;
-  margin: 1rem 0;
+  color: var(--color-link);
+  margin-bottom: 0.5rem !important;
 }
 
 .discount {
-  color: #38a169;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--color-success);
   font-weight: 500;
-  background: #f0fff4;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  display: inline-block;
-  margin-bottom: 1rem;
 }
 
 .rating {
-  color: #d69e2e;
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: var(--color-body-muted);
+  margin-bottom: 1.25rem !important;
 }
 
 .button {
-  margin-top: 2rem;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
   font-weight: 600;
+  background: var(--color-btn-bg);
+  color: var(--color-btn-fg);
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  box-shadow: var(--shadow-sm);
 }
 
-@media (max-width: 768px) {
-  .container { padding: 1.5rem 1rem; }
-  .image { max-width: 100%; height: auto; margin-bottom: 1rem; }
-  .price { font-size: 1.4rem; }
-  .button { padding: 0.8rem 1.2rem; margin-top: 1rem; }
+.button:hover:not(:disabled) {
+  background: var(--color-btn-bg-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .button {
+    width: 100%;
+  }
 }
